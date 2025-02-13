@@ -149,14 +149,18 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
+      <!-- <video poster="" id="tree" autoplay controls muted loop height="100%"> -->
         <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
+        <!-- <source src="static/videos/banner_video.mp4" type="video/mp4"> -->
+        <!-- <source src="static/videos/banner_video.mp4" type="video/mp4"> -->
+      <!-- </video> -->
+      <img src="static/images/teaser.png" alt="Logo" width="100%" height="100%">
+      <p>
+        Token Accessibility and Dynamic Computation. (a) Token accessibility levels from token isolation to crosssample interaction. Colors represent tokens in different samples, ti indicates noise levels. (b) Performance-accessibility analysis across architectures. (c) Computational dynamics during diffusion sampling, showing adaptive computation from noise to image. (d) Class-wise computation allocation from hard (technical diagrams) to easy (natural photos) tasks. Results from DiffMoE-L-E16-Flow (700K). 
+      </p>
+      <!-- <h2 class="subtitle has-text-centered"> -->
+        <!-- Token Accessibility and Dynamic Computation. (a) Token accessibility levels from token isolation to crosssample interaction. Colors represent tokens in different samples, ti indicates noise levels. (b) Performance-accessibility analysis across architectures. (c) Computational dynamics during diffusion sampling, showing adaptive computation from noise to image. (d) Class-wise computation allocation from hard (technical diagrams) to easy (natural photos) tasks. Results from DiffMoE-L-E16-Flow (700K).  -->
+      <!-- </h2> -->
     </div>
   </div>
 </section>
@@ -164,20 +168,78 @@
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <!-- 把下面一段文字有 latex 格式的地方加粗 -->
+              <p>
+              Diffusion models have demonstrated remarkable success in various image generation tasks, 
+              but their performance is often limited by the uniform processing of inputs across varying conditions and noise levels. 
+              To address this limitation, we propose a novel approach that leverages the inherent heterogeneity of the diffusion process. 
+              Our method, <strong>DiffMoE</strong>, introduces a <strong>batch-level global token pool</strong>that enables experts to access global token distributions during training, 
+              promoting specialized expert behavior. To unleash the full potential of the diffusion process, 
+              DiffMoE incorporates a <strong>capacity predictor</strong> that dynamically allocates computational resources based on noise levels and sample complexity. 
+              Through comprehensive evaluation,  DiffMoE  achieves state-of-the-art performance among diffusion models on ImageNet benchmark, 
+              substantially outperforming both dense architectures with 1.5x activated parameters and existing MoE approaches while maintaining 1x activated parameters. 
+              The effectiveness of our approach extends beyond class-conditional generation to more challenging tasks such as text-to-image generation, demonstrating its broad applicability across different diffusion model applications.  
+            </p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Paper Method -->
+<section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
-          <p>
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+          <!-- 把下面一段文字有 latex 格式的地方加粗 -->
+            <p>
+              DiffMoE Architecture Overview. DiffMoE flattens tokens into a batch-level global token pool, where each expert maintains a fixed training capacity. During inference, a dynamic capacity predictor adaptively routes tokens across different sampling steps and conditions. Different colors denote tokens from distinct samples, while ti represents corresponding noise levels.
           </p>
+          <div class="columns is-centered has-text-justified">
+            <td colspan="3">
+              <img src="static/images/Method.png" alt="method" width="100%" />
+            </td>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End paper abstract -->
+<!-- End Paper Method -->
+
+
+<!-- Paper Method -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Experiments</h2>
+        <div class="content has-text-justified">
+          <!-- 把下面一段文字有 latex 格式的地方加粗 -->
+            <p>
+              DiffMoE Architecture Overview. DiffMoE flattens tokens into a batch-level global token pool, where each expert maintains a fixed training capacity. During inference, a dynamic capacity predictor adaptively routes tokens across different sampling steps and conditions. Different colors denote tokens from distinct samples, while ti represents corresponding noise levels.
+          </p>
+          <div class="columns is-centered has-text-justified">
+            <td colspan="3">
+              <img src="static/images/Method.png" alt="method" width="100%" />
+            </td>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Paper Method -->
 
 
 <!-- Image carousel -->
@@ -222,26 +284,6 @@
 
 
 
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
 
 <!-- Video carousel -->
 <section class="hero is-small">
@@ -282,7 +324,7 @@
 
 
 <!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
@@ -292,7 +334,7 @@
         
       </div>
     </div>
-  </section>
+  </section> -->
 <!--End paper poster -->
 
 
@@ -300,7 +342,12 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+      <pre><code>@article{shi2025diffmoe,
+        title={DiffMoE: Dynamic Token Selection for Scalable Diffusion Transformers},
+        author={Shi, Minglei and Yuan, Ziyang and Yang, Haotian and Wang, Xintao and Zheng, Mingwu and Tao,  Xin and Zhao, Wenliang and Zheng, Wenzhao and Zhou, Jie and Lu, Jiwen and Wan, Pengfei and ZHANG, Di and Gai, Kun },
+        journal={arXiv preprint arXiv:xxxx},
+        year={2025}
+      }</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
