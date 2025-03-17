@@ -178,11 +178,11 @@
               Diffusion models have demonstrated remarkable success in various image generation tasks, 
               but their performance is often limited by the uniform processing of inputs across varying conditions and noise levels. 
               To address this limitation, we propose a novel approach that leverages the inherent heterogeneity of the diffusion process. 
-              Our method, <strong>DiffMoE</strong>, introduces a <strong>batch-level global token pool</strong>that enables experts to access global token distributions during training, 
+              Our method, <strong>DiffMoE</strong>, introduces a <strong>batch-level global token pool</strong> that enables experts to access global token distributions during training, 
               promoting specialized expert behavior. To unleash the full potential of the diffusion process, 
               DiffMoE incorporates a <strong>capacity predictor</strong> that dynamically allocates computational resources based on noise levels and sample complexity. 
               Through comprehensive evaluation,  DiffMoE  achieves state-of-the-art performance among diffusion models on ImageNet benchmark, 
-              substantially outperforming both dense architectures with 1.5x activated parameters and existing MoE approaches while maintaining 1x activated parameters. 
+              substantially outperforming both dense architectures with 3x activated parameters and existing MoE approaches while maintaining 1x activated parameters. 
               The effectiveness of our approach extends beyond class-conditional generation to more challenging tasks such as text-to-image generation, demonstrating its broad applicability across different diffusion model applications.  
             </p>
           </div>
@@ -203,7 +203,9 @@
         <div class="content has-text-justified">
           <!-- 把下面一段文字有 latex 格式的地方加粗 -->
             <p>
-              DiffMoE Architecture Overview. DiffMoE flattens tokens into a batch-level global token pool, where each expert maintains a fixed training capacity. During inference, a dynamic capacity predictor adaptively routes tokens across different sampling steps and conditions. Different colors denote tokens from distinct samples, while ti represents corresponding noise levels.
+              DiffMoE Architecture Overview. DiffMoE flattens tokens into a batch-level global token pool, where each expert maintains a fixed training capacity. 
+              During inference, a dynamic capacity predictor adaptively routes tokens across different sampling steps and conditions. 
+              Different colors denote tokens from distinct samples, while ti represents corresponding noise levels.
           </p>
           <div class="columns is-centered has-text-justified">
             <td colspan="3">
@@ -227,11 +229,53 @@
         <div class="content has-text-justified">
           <!-- 把下面一段文字有 latex 格式的地方加粗 -->
             <p>
-              DiffMoE Architecture Overview. DiffMoE flattens tokens into a batch-level global token pool, where each expert maintains a fixed training capacity. During inference, a dynamic capacity predictor adaptively routes tokens across different sampling steps and conditions. Different colors denote tokens from distinct samples, while ti represents corresponding noise levels.
+              <strong>ImageNet Generation.</strong> After 7000K steps, DiffMoE-L-E8 achieves state-of-the-art FID50K 
+              scores of DDPM/Flow (2.30/2.13)  with cfg=1.5, surpassing Dense-DiT-XL (2.32/2.19) as shown below. All evaluations follow DiT's protocol.  
+            </p>
+          <div class="columns is-centered has-text-justified">
+            <td colspan="3">
+              <img src="static/images/SOTA.png" alt="method" width="100%" />
+            </td>
+            <p>
+              <strong>Scaling Parameter Behavior.</strong> After 3000K steps, 
+              To explore the upper limits of DiffMoE and quantify its performance efficiency, we scaled the model to larger sizes and trained them for 3000K steps. DiffMoE-L-E16-Flow achieves the best performance among the evaluated models. 
+              Notably, DiffMoE-L-E16 surpasses the performance of Dense-DiT-XXXL-Flow, which uses 3x the parameters, while operating with only 1x the parameters. This highlights the exceptional parameter efficiency and scalability of DiffMoE.
+            </p>
+          <div class="columns is-centered has-text-justified">
+            <td colspan="3">
+              <img src="static/images/SOTA.png" alt="method" width="100%" />
+            </td>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Paper Method -->
+
+
+
+<!-- Paper Method -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Visualization</h2>
+        <div class="content has-text-justified">
+          <!-- 把下面一段文字有 latex 格式的地方加粗 -->
+            <p>
+              <!-- DiffMoE Architecture Overview. DiffMoE flattens tokens into a batch-level global token pool, where each expert maintains a fixed training capacity. During inference, a dynamic capacity predictor adaptively routes tokens across different sampling steps and conditions. Different colors denote tokens from distinct samples, while ti represents corresponding noise levels. -->
           </p>
           <div class="columns is-centered has-text-justified">
             <td colspan="3">
-              <img src="static/images/Method.png" alt="method" width="100%" />
+              <img src="static/images/viz-1.png" alt="method" width="100%" />
+            </td>
+            <td colspan="3">
+              <img src="static/images/viz-2.png" alt="method" width="100%" />
+            </td>
+            <td colspan="3">
+              <img src="static/images/viz-3.png" alt="method" width="100%" />
             </td>
           </div>
         </div>
@@ -242,84 +286,32 @@
 <!-- End Paper Method -->
 
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
+<!-- Paper Method -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Analysis</h2>
+        <div class="content has-text-justified">
+          <!-- 把下面一段文字有 latex 格式的地方加粗 -->
+            <p>
+              <!-- DiffMoE Architecture Overview. DiffMoE flattens tokens into a batch-level global token pool, where each expert maintains a fixed training capacity. During inference, a dynamic capacity predictor adaptively routes tokens across different sampling steps and conditions. Different colors denote tokens from distinct samples, while ti represents corresponding noise levels. -->
+          </p>
+          <div class="columns is-centered has-text-justified">
+            <td colspan="3">
+              <img src="static/images/ana-1.png" alt="method" width="100%" />
+            </td>
+            <td colspan="3">
+              <img src="static/images/ana-2.png" alt="method" width="100%" />
+            </td>
+            </td>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End video carousel -->
-
-
-
+<!-- End Paper Method -->
 
 
 
