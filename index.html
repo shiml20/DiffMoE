@@ -212,12 +212,12 @@
               During inference, a dynamic capacity predictor adaptively routes tokens across different sampling steps and conditions. 
               Different colors denote tokens from distinct samples, while ti represents corresponding noise levels.
           </p>
+        </div>
           <div class="columns is-centered has-text-justified">
             <td colspan="3">
               <img src="static/images/Method.png" alt="method" width="100%" />
             </td>
           </div>
-        </div>
       </div>
     </div>
   </div>
@@ -231,31 +231,28 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Experiments</h2>
-        <div class="content has-text-justified">
-          <!-- 把下面一段文字有 latex 格式的地方加粗 -->
+
+          <div class="columns is-centered has-text-justified">
             <p>
               <strong>ImageNet Generation.</strong> After 7000K steps, DiffMoE-L-E8 achieves state-of-the-art FID50K 
               scores of DDPM/Flow (2.30/2.13)  with cfg=1.5, surpassing Dense-DiT-XL (2.32/2.19) as shown below. All evaluations follow DiT's protocol.  
             </p>
-          <div class="columns is-centered has-text-justified">
             <td colspan="3">
               <img src="static/images/SOTA.png" alt="method" width="100%" />
             </td>
           </div>
 
+          <div class="columns is-centered has-text-justified">
             <p>
               <strong>Scaling Parameter Behavior.</strong> After 3000K steps, 
               To explore the upper limits of DiffMoE and quantify its performance efficiency, we scaled the model to larger sizes and trained them for 3000K steps. DiffMoE-L-E16-Flow achieves the best performance among the evaluated models. 
               Notably, DiffMoE-L-E16 surpasses the performance of Dense-DiT-XXXL-Flow, which uses 3x the parameters, while operating with only 1x the parameters. This highlights the exceptional parameter efficiency and scalability of DiffMoE.
             </p>
-          <div class="columns is-centered has-text-justified">
             <td colspan="3">
               <img src="static/images/SOTA.png" alt="method" width="100%" />
             </td>
           </div>
 
-          
-        </div>
       </div>
     </div>
   </div>
